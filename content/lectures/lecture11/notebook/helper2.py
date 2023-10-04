@@ -43,6 +43,9 @@ def unregularized_model():
 
 	# Add 5 hidden layers with 100 neurons each
 	model_1.add(layers.Dense(100,  activation='tanh', input_shape=(1,)))
+	# set the input shape as (1,)
+	# !!!!!!!!!
+	
 	model_1.add(layers.Dense(100,  activation='relu'))
 	model_1.add(layers.Dense(100,  activation='relu'))
 	model_1.add(layers.Dense(100,  activation='relu'))
@@ -57,6 +60,7 @@ def unregularized_model():
 
 	# Save the history about the model
 	history_1 = model_1.fit(x_train, y_train,  validation_data=(x_test,y_test), epochs=200, batch_size=10, verbose=0)
+	# !!!!!! validation data
 
 	# Use the model above to predict for x_b (used exclusively for plotting) 
 	y_pred = model_1.predict(x_b)
@@ -71,6 +75,7 @@ def unregularized_model():
 	plt.rcParams["figure.figsize"] = (10,8)
 	plt.title("Unregularized model")
 	plt.semilogy(history_1.history['loss'], label='Train Loss', color='#FF9A98')
+	# Make a plot with log scaling on the y-axis.
 	plt.semilogy(history_1.history['val_loss'],  label='Validation Loss', color='#75B594')
 	plt.legend()
 

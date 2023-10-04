@@ -71,6 +71,9 @@ def plot_weights(mlp,epochnum=0,n_hidden=50):
                 plt.title(f'{numweights} non-zero weights before training')
 
                 # Plotting ellipses because matplotlib figure is a rectangle, hence circles will become ovals 
+                # the consequence of using a rectangular figure. 
+                # Since the figure is not square, any circles that are plotted within it will be stretched or squashed, causing them to appear as ovals instead of perfect circles. 
+                # This distortion occurs because the aspect ratio of the figure is not 1:1, which is what is required for circles to maintain their true shape.
 
                 # Input 
                 ellipse(0, input_location,color = '#E6B9B8')
@@ -84,6 +87,7 @@ def plot_weights(mlp,epochnum=0,n_hidden=50):
                     ellipse(2,1+i,color = '#C6D9F1')
 
                 plt.yticks([])
+                # !!!!!!
                 plt.ylim([0.5,5.5])
 
             
@@ -103,7 +107,7 @@ def plot_weights(mlp,epochnum=0,n_hidden=50):
                 plt.title(f'{numweights} non-zero weights after {epochnum} epochs ')
 
                 # Plotting ellipses because matplotlib figure is a rectangle, hence circles will become ovals 
-
+                
                 # Input 
                 ellipse(0, input_location,color = '#E6B9B8')
                 # Output

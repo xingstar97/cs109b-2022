@@ -106,7 +106,7 @@ def lr_decay(W, epsilon,decay_rate = 0.1,delta=1e-8):
         
     return Ws,lrs
 
-def rms_prop(W, epsilon, rho=0.999, delta=1e-8):
+def rms_prop(W, epsilon, rho=0.90, delta=1e-8):
 
     #Variable to store the W value before update. This will help to check for convergence. 
     W_prev = 0
